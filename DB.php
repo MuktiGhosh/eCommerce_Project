@@ -8,7 +8,7 @@ class DB
     private $database;
     private $connection;
 
-    public function __construct($host, $user, $password, $database)
+    public function __construct($host='localhost', $user='root', $password='root1234', $database='e_commerce')
     {
         $this->host = $host;
         $this->user = $user;
@@ -30,16 +30,10 @@ class DB
         mysqli_close($this->connection);
     }
 
-
     public function getDataFromTable($query)
     {
         $result = mysqli_query($this->connection, $query);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
-    }
-
-    public function importDataFromSql()
-    {
-        // $db->query(file_get_contents('sql/ecommerce.sql'));
     }
 
     public function getCategories($parentId)
@@ -54,6 +48,14 @@ class DB
         }
         $result = mysqli_query($this->connection, $query);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
+    public function getCategoriesWithTotalItems(){
+        return "SELECT c.id, c.Name, COUNT(icr.ItemNumber) AS total_items
+        FROM category c
+            LEFT JOIN Item_category_relations icr ON c.Id = icr.categoryId
+        GROUP BY c.id
+        ORDER BY total_items DESC";
     }
 
 }

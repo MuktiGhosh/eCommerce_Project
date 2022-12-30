@@ -1,18 +1,14 @@
 <?php
 
 include("header.php");
-require_once("Category.php");
 include_once('DB.php');
 
-//Use your dbname, host, user and password here
-$db = new DB('localhost', 'root', 'root1234', 'e_commerce');
+$db = new DB();
 $db->connect();
 
-$categories = new Category();
-$categoriesWithItemsQuery = $categories->getCategoriesWithTotalItemsQuery();
-
 //Retrieve data from database
-$categoriesWithItems = $db->getDataFromTable($categoriesWithItemsQuery);
+$categoriesWithItems = $db->getDataFromTable($db->getCategoriesWithTotalItems());
+$db->close();
 ?>
 <table style="border-collapse: collapse" border="1">
     <thead>

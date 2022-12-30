@@ -17,7 +17,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <nav>
     <ul>
         <li <?php if ($currentPage == 'index.php') {echo 'class="selected"';} ?>><a href="index.php">Home</a></li>
-        <li <?php if ($currentPage == 'category_with_total_items.php') {echo 'class="selected"';} ?>><a href="category_with_total_items.php">Category List</a></li>
-        <li <?php if ($currentPage == 'category_tree.php') {echo 'class="selected"';} ?>><a href="category_tree.php">Category Tree</a></li>
+        <li <?php if ($currentPage == 'category_list_page.php') {echo 'class="selected"';} ?>><a href="category_list_page.php">Category List</a></li>
+        <li <?php if ($currentPage == 'category_tree_page.php') {echo 'class="selected"';} ?>><a href="category_tree_page.php">Category Tree</a></li>
     </ul>
 </nav>
