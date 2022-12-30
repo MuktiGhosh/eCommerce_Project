@@ -2,7 +2,7 @@
 
 
 ### Installation
-* First clone this Repo into your local server
+* First clone this Repo into your local server and checkout master branch
 * Go to Project directory
 * Create a database and import the sql file.
 * Go to the project directory and open DB.php file and change the host, db_name, user and password as your server configuration
